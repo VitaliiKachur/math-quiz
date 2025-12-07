@@ -1,0 +1,27 @@
+.card {
+  background-color: var(--card-bg); 
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  border: 1px solid #444;
+  
+  animation: fadeIn 0.5s ease-out;
+}
+
+h1, h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+p {
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,46 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --bg-color: #0a0b1f;          
+  --text-color: #rgba(255, 255, 255, 0.87);
+  --primary-color: #646cff;    
+  --primary-hover: #535bf2;
+  --card-bg: #2b2b2b;          
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center; 
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  background-color: #3a3a3a;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  outline: none;
+  transition: border-color 0.25s;
+  width: 80%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+}
