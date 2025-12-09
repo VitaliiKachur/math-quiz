@@ -2,12 +2,12 @@ import { useState } from 'react';
 import useTimer from './useTimer';
 import useMathGenerator from './useMathGenerator';
 
-const GAME_DURATION = 30;
-
-const useMathQuiz = () => {
+const useMathQuiz = (settings) => { 
   const [gameState, setGameState] = useState('start'); 
   const [score, setScore] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0); 
   const [userAnswer, setUserAnswer] = useState('');
+  const [feedback, setFeedback] = useState(null);
 
   const { currentProblem, generateProblem, checkResult } = useMathGenerator();
 
@@ -15,13 +15,15 @@ const useMathQuiz = () => {
     setGameState('result');
   };
 
-  const { timeLeft, startTimer, stopTimer } = useTimer(GAME_DURATION, finishGame);
-
+  const { timeLeft, startTimer, stopTimer } = useTimer(settings.duration, finishGame);
 
   const startGame = () => {
     setScore(0);
+    setTotalQuestions(0);
     setUserAnswer('');
-    generateProblem();
+    setFeedback(null);
+    generateProblem(settings); 
+    
     startTimer(); 
     setGameState('game');
   };
@@ -29,11 +31,15 @@ const useMathQuiz = () => {
   const checkAnswer = () => {
     const isCorrect = checkResult(userAnswer);
     
+    setFeedback(isCorrect ? 'correct' : 'wrong');
+    setTimeout(() => setFeedback(null), 500);
+
+    setTotalQuestions(prev => prev + 1);
     if (isCorrect) {
       setScore((prev) => prev + 1);
     }
     
-    generateProblem();
+    generateProblem(settings);
     setUserAnswer('');
   };
 
@@ -45,9 +51,11 @@ const useMathQuiz = () => {
   return {
     gameState,
     score,
+    totalQuestions, 
     timeLeft,
     currentProblem,
     userAnswer,
+    feedback,
     setUserAnswer,
     startGame,
     checkAnswer,

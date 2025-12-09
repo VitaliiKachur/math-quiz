@@ -44,3 +44,22 @@ input {
 input:focus {
   border-color: var(--primary-color);
 }
+.card-correct {
+  border-color: #4caf50 !important;
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.5) !important;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.02); 
+}
+
+.card-wrong {
+  border-color: #f44336 !important;
+  box-shadow: 0 0 30px rgba(244, 67, 54, 0.5) !important;
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
