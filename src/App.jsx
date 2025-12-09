@@ -1,21 +1,44 @@
-import { useState } from 'react';
+import useMathQuiz from './hooks/useMathQuiz'; 
 import StartPage from './pages/StartPage';
 import GamePage from './pages/GamePage';
 import ResultPage from './pages/ResultPage';
 import './styles/global.css';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('start');
-
-  const handleStartGame = () => setCurrentPage('game');
-  const handleFinishGame = () => setCurrentPage('result');
-  const handleRestartGame = () => setCurrentPage('start');
+  const { 
+    gameState, 
+    score, 
+    timeLeft, 
+    currentProblem, 
+    userAnswer,
+    startGame, 
+    finishGame,
+    checkAnswer,
+    setUserAnswer
+  } = useMathQuiz(); 
 
   return (
     <div className="app-container">
-      {currentPage === 'start' && <StartPage onStart={handleStartGame} />}
-      {currentPage === 'game' && <GamePage onFinish={handleFinishGame} />}
-      {currentPage === 'result' && <ResultPage onRestart={handleRestartGame} />}
+      {gameState === 'start' && <StartPage onStart={startGame} />}
+      
+      {gameState === 'game' && (
+        <GamePage 
+          timeLeft={timeLeft}
+          score={score}
+          problem={currentProblem}
+          userAnswer={userAnswer}
+          onAnswerChange={setUserAnswer}
+          onCheckAnswer={checkAnswer}
+          onFinish={finishGame} 
+        />
+      )}
+      
+      {gameState === 'result' && (
+        <ResultPage 
+          finalScore={score} 
+          onRestart={startGame} 
+        />
+      )}
     </div>
   );
 }
