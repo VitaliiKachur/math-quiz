@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useQuiz } from '../context/QuizContext';
 import Card from '../components/Card/Card';
 import Button from '../components/Button/Button';
 
-const GamePage = () => {
-  const { userId } = useParams(); 
+const GamePage = ({ quizState }) => {
+  const { userId } = useParams();
   const navigate = useNavigate();
-  
+
   const { 
-    timeLeft, score, totalQuestions, currentProblem, userAnswer, 
+    timeLeft, totalQuestions, currentProblem, userAnswer, 
     feedback, setUserAnswer, checkAnswer, finishGame, gameState 
-  } = useQuiz();
+  } = quizState;
 
   useEffect(() => {
     if (gameState === 'result') {
@@ -57,6 +56,7 @@ const GamePage = () => {
         onChange={(e) => setUserAnswer(e.target.value)}
         onKeyDown={handleKeyDown}
         autoFocus
+        autoComplete="off"
         style={{ fontSize: '2.5rem', padding: '15px', width: '60%', textAlign: 'center', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '2px solid rgba(255,255,255,0.2)' }}
       />
       
