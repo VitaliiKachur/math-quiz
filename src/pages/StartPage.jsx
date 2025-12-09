@@ -1,15 +1,40 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useQuiz } from '../context/QuizContext';
 import Card from '../components/Card/Card';
 import Button from '../components/Button/Button';
 
-const StartPage = ({ onStart, onSettings }) => {
+const StartPage = ({ onOpenSettings }) => {
+  const [name, setName] = useState('');
+  const { setPlayerName, startGame } = useQuiz();
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    if (!name.trim()) {
+      alert('Будь ласка, введіть ім’я!');
+      return;
+    }
+    setPlayerName(name);
+    startGame(); 
+    navigate(`/game/${name}`);
+  };
+
   return (
     <Card>
       <h1>🧮 Математичний Геній</h1>
       <p>Перевір свої навички швидкості та точності!</p>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Button onClick={onStart}>🚀 Розпочати гру</Button>
-        <Button onClick={onSettings} variant="secondary">⚙️ Налаштування</Button>
+      <input 
+        type="text" 
+        placeholder="Введіть ваше ім'я"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        style={{ marginBottom: '15px', padding: '12px', width: '80%', borderRadius: '8px', border: 'none' }}
+      />
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+        <Button onClick={handleStart}>🚀 Розпочати гру</Button>
+        <Button onClick={onOpenSettings} variant="secondary">⚙️ Налаштування</Button>
       </div>
     </Card>
   );

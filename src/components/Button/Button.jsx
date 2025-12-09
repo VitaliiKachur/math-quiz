@@ -1,8 +1,12 @@
-import './Button.css';
+import styles from './Button.module.css'; 
 
-const Button = ({ onClick, children, variant = 'primary' }) => {
+const Button = ({ onClick, children, variant = 'primary', type = 'button' }) => {
   return (
-    <button className={`btn btn-${variant}`} onClick={onClick}>
+    <button 
+      type={type}
+      className={`${styles.btn} ${styles[variant]}`} 
+      onClick={onClick}
+    >
       {children}
     </button>
   );
