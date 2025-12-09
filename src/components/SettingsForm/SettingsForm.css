@@ -1,0 +1,108 @@
+.settings-form {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 25px; 
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.settings-form input[type="number"], 
+.settings-form select {
+  width: 100%;
+  padding: 12px 15px; 
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #2a2a2a;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.settings-form input[type="number"]:focus, 
+.settings-form select:focus {
+  border-color: #646cff;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+}
+
+.checkbox-label {
+  display: flex !important; 
+  align-items: center;  
+  background-color: #3a3a3a;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  user-select: none; 
+}
+
+.checkbox-label:hover {
+  background-color: #444;
+  border-color: #666;
+}
+
+.checkbox-label:active {
+  transform: scale(0.98);
+}
+
+.checkbox-label input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #888;
+  border-radius: 4px;
+  margin-right: 12px; 
+  display: grid;
+  place-content: center;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background-color: #646cff; 
+  border-color: #646cff;
+}
+
+.checkbox-label input[type="checkbox"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0); 
+  transition: transform 0.2s ease-in-out;
+}
+
+.checkbox-label input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.checkbox-label span {
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+.error {
+  color: #ff4d4f;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  display: block;
+}

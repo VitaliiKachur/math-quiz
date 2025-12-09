@@ -16,17 +16,28 @@ const useTimer = (initialTime, onTimeUp) => {
   useEffect(() => {
     let interval = null;
 
-    if (isRunning && timeLeft > 0) {
+    if (isRunning) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => {
+          if (prev <= 0) return 0;
+          return prev - 1;
+        });
       }, 1000);
-    } else if (timeLeft === 0 && isRunning) {
-      setIsRunning(false);
-      if (onTimeUp) onTimeUp();
     }
 
-    return () => clearInterval(interval);
-  }, [isRunning, timeLeft, onTimeUp]);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isRunning]); 
+
+  useEffect(() => {
+    if (timeLeft === 0 && isRunning) {
+      setIsRunning(false);
+      if (onTimeUp) {
+        onTimeUp();
+      }
+    }
+  }, [timeLeft, isRunning, onTimeUp]);
 
   return { timeLeft, startTimer, stopTimer };
 };
