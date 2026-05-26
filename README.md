@@ -1,16 +1,73 @@
-# React + Vite
+# Math Quiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Math Quiz is a React/Vite educational application for practicing arithmetic tasks with configurable time, difficulty and operators.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite 7
+- Zustand
+- React Hook Form
+- Yup
+- Storybook
+- JSDoc
 
-## React Compiler
+## Configuration
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Game settings are stored locally in the browser:
 
-## Expanding the ESLint configuration
+- duration: 5-600 seconds;
+- difficulty: `easy`, `medium`, `hard`, `expert`;
+- operators: `+`, `-`, `*`, `/`;
+- local storage key: `math-quiz-storage`;
+- cookie consent key: `math-quiz-cookie-consent`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Commands
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run storybook
+npm run build-storybook
+npm run docs
+npm run license:report
+```
+
+## Documentation
+
+Local generated documentation is created with JSDoc:
+
+```bash
+npm run docs
+```
+
+The generated site is written to `docs/`. Additional instructions for the required local documentation video are in [DOCUMENTATION.md](DOCUMENTATION.md).
+
+## Storybook
+
+Storybook documents two components:
+
+- `Button` as a base component;
+- `SettingsForm` as a complex component.
+
+Run it with:
+
+```bash
+npm run storybook
+```
+
+## GDPR and Privacy
+
+The application includes a GDPR-oriented cookie popup with consent groups for necessary storage, preferences and analytics. Privacy details and user restrictions are described in [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
+
+## License
+
+This project is released under the [MIT License](LICENSE). Dependency license verification is stored in [LICENSE_REPORT.md](LICENSE_REPORT.md).
+
+## Author
+
+Vttalii_Kachur  
+vtk241_kvv@student.ztu.edu.ua

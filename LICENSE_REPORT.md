@@ -1,0 +1,19 @@
+[@hookform/resolvers@5.2.2](https://github.com/react-hook-form/resolvers) - MIT
+[@standard-schema/utils@0.3.0](https://github.com/standard-schema/standard-schema) - MIT
+[@types/react@19.2.7](https://github.com/DefinitelyTyped/DefinitelyTyped) - MIT
+[cookie@1.1.1](https://github.com/jshttp/cookie) - MIT
+[csstype@3.2.3](https://github.com/frenic/csstype) - MIT
+[property-expr@2.0.6](https://github.com/jquense/expr) - MIT
+[react-dom@19.2.1](https://github.com/facebook/react) - MIT
+[react-hook-form@7.68.0](https://github.com/react-hook-form/react-hook-form) - MIT
+[react-router-dom@7.10.1](https://github.com/remix-run/react-router) - MIT
+[react-router@7.10.1](https://github.com/remix-run/react-router) - MIT
+[react@19.2.1](https://github.com/facebook/react) - MIT
+[scheduler@0.27.0](https://github.com/facebook/react) - MIT
+[set-cookie-parser@2.7.2](https://github.com/nfriedly/set-cookie-parser) - MIT
+[tiny-case@1.0.3](https://github.com/jquense/tiny-case) - MIT
+[toposort@2.0.2](https://github.com/marcelklehr/toposort) - MIT
+[type-fest@2.19.0](https://github.com/sindresorhus/type-fest) - (MIT OR CC0-1.0)
+[use-sync-external-store@1.6.0](https://github.com/facebook/react) - MIT
+[yup@1.7.1](https://github.com/jquense/yup) - MIT
+[zustand@5.0.9](https://github.com/pmndrs/zustand) - MIT

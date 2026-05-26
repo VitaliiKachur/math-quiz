@@ -3,15 +3,17 @@ import { createPortal } from 'react-dom';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
   useEffect(() => {
+    if (!isOpen) return undefined;
+
     const handleEsc = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   return createPortal(
     <div className="modal-overlay">
