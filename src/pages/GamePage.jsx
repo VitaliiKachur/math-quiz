@@ -7,9 +7,9 @@ const GamePage = ({ quizState }) => {
   const { userId } = useParams();
   const navigate = useNavigate();
 
-  const { 
-    timeLeft, totalQuestions, currentProblem, userAnswer, 
-    feedback, setUserAnswer, checkAnswer, finishGame, gameState 
+  const {
+    timeLeft, totalQuestions, currentProblem, userAnswer,
+    feedback, setUserAnswer, checkAnswer, finishGame, gameState
   } = quizState;
 
   useEffect(() => {
@@ -31,26 +31,26 @@ const GamePage = ({ quizState }) => {
   return (
     <Card className={getCardClass()}>
       <div style={{ position: 'absolute', top: '10px', right: '20px', color: '#888', fontSize: '0.9rem' }}>
-        Гравець: {userId}
+        Player: {userId}
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '40px', color: '#fff', fontSize: '1.8rem', fontWeight: 'bold' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span>⏱</span> 
-          <span style={{ color: timeLeft <= 5 ? '#ff4444' : '#ffffff' }}>{timeLeft} с</span>
+          <span>Time</span>
+          <span style={{ color: timeLeft <= 5 ? '#ff4444' : '#ffffff' }}>{timeLeft} s</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ color: '#e0e0e0', fontSize: '1.4rem' }}>Питання:</span>
+          <span style={{ color: '#e0e0e0', fontSize: '1.4rem' }}>Question:</span>
           <span style={{ color: '#ffd700' }}>{totalQuestions + 1}</span>
         </div>
       </div>
-      
+
       <h2 style={{ fontSize: '4rem', margin: '20px 0' }}>
         {currentProblem.num1} {currentProblem.operator} {currentProblem.num2} = ?
       </h2>
-      
-      <input 
-        type="text" 
+
+      <input
+        type="text"
         inputMode="decimal"
         value={userAnswer}
         onChange={(e) => setUserAnswer(e.target.value)}
@@ -59,10 +59,10 @@ const GamePage = ({ quizState }) => {
         autoComplete="off"
         style={{ fontSize: '2.5rem', padding: '15px', width: '60%', textAlign: 'center', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '2px solid rgba(255,255,255,0.2)' }}
       />
-      
+
       <div style={{ marginTop: '40px', width: '100%', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <Button onClick={checkAnswer}>Відповісти</Button>
-        <Button onClick={finishGame} variant="secondary">Завершити гру</Button>
+        <Button onClick={checkAnswer}>Submit answer</Button>
+        <Button onClick={finishGame} variant="secondary">Finish game</Button>
       </div>
     </Card>
   );

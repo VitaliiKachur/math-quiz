@@ -8,6 +8,7 @@ import GamePage from './pages/GamePage';
 import ResultPage from './pages/ResultPage';
 import SettingsForm from './components/SettingsForm/SettingsForm';
 import Modal from './components/Modal/Modal';
+import CookieConsent from './components/CookieConsent/CookieConsent';
 import './styles/global.css';
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
           onCancel={() => setIsSettingsOpen(false)}
         />
       </Modal>
+
+      <CookieConsent />
     </div>
   );
 }
